@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿
 
-namespace MyPhotoshop.Data
+namespace MyPhotoshop
 {
     public class Canals
     {
@@ -20,7 +17,7 @@ namespace MyPhotoshop.Data
 
         public double B { get; set; }
 
-        public void SetValue(double red, double green, double blue)
+        public void SetValues(double red, double green, double blue)
         {
             R = red;
             G = green;

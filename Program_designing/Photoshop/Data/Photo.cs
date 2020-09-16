@@ -1,4 +1,3 @@
-using MyPhotoshop.Data;
 using System;
 
 namespace MyPhotoshop
@@ -22,7 +21,7 @@ namespace MyPhotoshop
 			for (var x = 0; x < data.GetLength(0); x++)
 				for (var y = 0; y < data.GetLength(1); y++)
                 {
-					data[x, y] = new Pixel(x, y);
+					data[x, y] = new Pixel();
                 }
         }
 	}

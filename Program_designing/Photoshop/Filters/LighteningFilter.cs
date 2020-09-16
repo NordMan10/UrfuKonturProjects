@@ -1,4 +1,3 @@
-using MyPhotoshop.Data;
 using System;
 
 namespace MyPhotoshop
@@ -25,7 +24,9 @@ namespace MyPhotoshop
 
 			for (int x = 0; x < result.width; x++)
 				for (int y = 0; y < result.height; y++)
-					result.data[x, y].Canals.SetValue(original.data[x, y].Canals.R * parameters[0], original.data[x, y].Canals.G * parameters[0],
+					result.data[x, y].Canals.SetValues(
+						original.data[x, y].Canals.R * parameters[0], 
+						original.data[x, y].Canals.G * parameters[0],
 						original.data[x, y].Canals.B * parameters[0]);
 			return result;
 		}
