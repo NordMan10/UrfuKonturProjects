@@ -37,9 +37,24 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Canals.cs" />
     <Compile Include="Data\Pixel.cs" />
-    <Compile Include="Filters\ParameterInfo.cs" />
+    <Compile Include="Filters\EmptyParameters.cs" />
+    <Compile Include="Filters\GrayscaleParameters.cs" />
+    <Compile Include="Filters\Parameters\IParameters.cs" />
+    <Compile Include="Filters\LighteningParameters.cs" />
+    <Compile Include="Filters\Parameters\IParametersHandler.cs" />
+    <Compile Include="Filters\Parameters\ParameterInfo.cs" />
+    <Compile Include="Filters\Parameters\ParametrizedFilter.cs" />
+    <Compile Include="Filters\Parameters\ExpressionParametersHandler.cs" />
+    <Compile Include="Filters\Parameters\StaticParametersHandler.cs" />
+    <Compile Include="Filters\Parameters\SimpleParametersHandler.cs" />
+    <Compile Include="Filters\PixelFilter.cs" />
+    <Compile Include="Filters\Transform\FreeTransformer.cs" />
+    <Compile Include="Filters\Transform\ITransformer.cs" />
+    <Compile Include="Filters\Transform\RotateTransformer.cs" />
+    <Compile Include="Filters\Transform\RotationParameters.cs" />
+    <Compile Include="Filters\Transform\TransformFilter.cs" />
+    <Compile Include="Filters\Transform\TransformFilter{TParameters}.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Window\MainWindow.cs">
       <SubType>Form</SubType>
@@ -47,7 +62,6 @@
     <Compile Include="Data\Photo.cs" />
     <Compile Include="Filters\IFilter.cs" />
     <Compile Include="Data\Convertors.cs" />
-    <Compile Include="Filters\LighteningFilter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -58,4 +72,5 @@
   <ItemGroup>
     <Content Include="Tasks.txt" />
   </ItemGroup>
+  <ItemGroup />
 </Project>

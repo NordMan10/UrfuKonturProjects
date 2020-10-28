@@ -6,23 +6,22 @@ namespace MyPhotoshop
 	{
 		public Photo(int width_, int height_)
         {
-			width = width_;
-			height = height_;
-			InitData();
+			Width = width_;
+			Height = height_;
+			data = new Pixel[Width, Height];
         }
 
-		public int width;
-		public int height;
-		public Pixel[,] data;
+		public int Width { get; }
 
-		public void InitData()
+		public int Height { get; }
+
+		private Pixel[,] data;
+
+
+		public Pixel this[int x, int y]
         {
-			data = new Pixel[width, height];
-			for (var x = 0; x < data.GetLength(0); x++)
-				for (var y = 0; y < data.GetLength(1); y++)
-                {
-					data[x, y] = new Pixel();
-                }
+			get { return data[x, y]; }
+			set { data[x, y] = value; }
         }
 	}
 }

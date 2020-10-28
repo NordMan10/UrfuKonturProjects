@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.IO;
 
 namespace MyPhotoshop
@@ -130,7 +131,10 @@ namespace MyPhotoshop
 		
 		void Process(object sender, EventArgs empty)
 		{
-			var data=parametersControls.Select(z=>(double)z.Value).ToArray();
+			var timer = new Stopwatch();
+			timer.Start();
+
+			var data = parametersControls.Select(z=>(double)z.Value).ToArray();
 			var filter=(IFilter)filtersSelect.SelectedItem;
 			Photo result=null;
      		result=filter.Process(originalPhoto,data);
@@ -147,6 +151,9 @@ namespace MyPhotoshop
 			}
 				
 			processed.Image=resultBmp;
+
+			timer.Stop();
+			MessageBox.Show(timer.ElapsedMilliseconds.ToString());
 		}
 
         
