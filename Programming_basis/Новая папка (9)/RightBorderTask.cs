@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Autocomplete
+{
+    public class RightBorderTask
+    {
+        /// <returns>
+        /// Возвращает индекс правой границы. 
+        /// То есть индекс минимального элемента, который не начинается с prefix и большего prefix.
+        /// Если такого нет, то возвращает items.Length
+        /// </returns>
+        /// <remarks>
+        /// Функция должна быть НЕ рекурсивной
+        /// и работать за O(log(items.Length)*L), где L — ограничение сверху на длину фразы
+        /// </remarks>
+        public static int GetRightBorderIndex(IReadOnlyList<string> phrases, string prefix, int left, int right)
+        {
+            while (right - left > 1 && !phrases[right - 1].StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+            {
+                var middle = (left + right) / 2;
+                if (!phrases[middle].StartsWith(prefix, StringComparison.OrdinalIgnoreCase) && string.Compare(phrases[middle], prefix, StringComparison.OrdinalIgnoreCase) > 0)
+                    right = middle;
+                else left = middle;
+            }
+            return right;
+        }
+    }
+}
